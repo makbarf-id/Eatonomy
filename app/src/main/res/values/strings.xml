@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Eatonomy</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="button_food_database">Food Database</string>
+    <string name="button_add_food">Add Food Item</string>
+
+    <string-array name="currency_options">
+        <item>IDR</item>
+        <item>JPY</item>
+        <item>USD</item>
+    </string-array>
+
+    <string name="menu_budget">Budget</string>
+    <string name="menu_grocery">Grocery</string>
+    <string name="title_budget_planning">Budget Planning</string>
+</resources>

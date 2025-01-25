@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary brand colors -->
+    <color name="primary">#ACC89D</color>          <!-- Apple green -->
+    <color name="primary_variant">#357A39</color>  <!-- Darker green -->
+    <color name="on_primary">#FFFFFF</color>       <!-- White text on primary -->
+    
+    <!-- Secondary brand colors -->
+    <color name="secondary">#EBE0C8</color>        <!-- Light green -->
+    <color name="secondary_variant">#C7B89F</color><!-- Darker light green -->
+    <color name="on_secondary">#000000</color>     <!-- Black text on secondary -->
+    
+    <!-- Background colors -->
+    <color name="background">#F3F2DC</color>       <!-- Cream/beige background -->
+    <color name="surface">#FFFFFF</color>          <!-- White surface -->
+    <color name="on_background">#000000</color>    <!-- Black text on background -->
+    <color name="on_surface">#000000</color>       <!-- Black text on surface -->
+
+    <!-- Other colors -->
+    <color name="error">#B00020</color>           <!-- Error red -->
+    <color name="error_color">#B00020</color>     <!-- Legacy error red reference -->
+    <color name="success">#4CAF50</color>         <!-- Success green -->
+    <color name="success_color">#4CAF50</color>   <!-- Legacy success green reference -->
+    <color name="outline_gray">#757575</color>    <!-- Gray for outlines -->
+    
+    <!-- Legacy colors (for backward compatibility) -->
+    <color name="purple_200">#EBE0C8</color>      <!-- Mapped to light green -->
+    <color name="purple_500">#ACC89D</color>      <!-- Mapped to primary green -->
+    <color name="purple_700">#357A39</color>      <!-- Mapped to dark green -->
+    
+    <!-- Essential system colors -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="scrim">#80000000</color>
+</resources>

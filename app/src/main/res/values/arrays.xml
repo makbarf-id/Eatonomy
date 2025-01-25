@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="activity_levels">
+        <item>Sedentary (little or no exercise)</item>
+        <item>Lightly Active (light exercise 1-3 days/week)</item>
+        <item>Moderately Active (moderate exercise 3-5 days/week)</item>
+        <item>Very Active (hard exercise 6-7 days/week)</item>
+        <item>Extra Active (very hard exercise &amp; physical job)</item>
+    </string-array>
+
+    <string-array name="macro_types">
+        <item>Balanced (25/50/25)</item>
+        <item>High Protein (35/40/25)</item>
+        <item>Low Carb (30/30/40)</item>
+    </string-array>
+
+    <string-array name="food_categories_form">
+        <item>Select Category</item>
+        <item>Grains</item>
+        <item>Vegetables</item>
+        <item>Fruits</item>
+        <item>Protein Foods</item>
+        <item>Dairy</item>
+        <item>Oils &amp; Fats</item>
+        <item>Snacks &amp; Sweets</item>
+        <item>Beverages</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="food_categories">
+        <item>All Categories</item>
+        <item>Grains</item>
+        <item>Vegetables</item>
+        <item>Fruits</item>
+        <item>Protein Foods</item>
+        <item>Dairy</item>
+        <item>Oils &amp; Fats</item>
+        <item>Snacks &amp; Sweets</item>
+        <item>Beverages</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="currencies">
+        <item>IDR</item>
+        <item>USD</item>
+        <item>EUR</item>
+        <item>SGD</item>
+        <item>MYR</item>
+    </string-array>
+</resources> 
