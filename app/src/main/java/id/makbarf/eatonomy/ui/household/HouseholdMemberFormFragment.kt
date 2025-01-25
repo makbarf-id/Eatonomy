@@ -27,7 +27,6 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import android.util.Log
 import kotlin.concurrent.schedule
-import java.time.LocalDate
 
 class HouseholdMemberFormFragment : Fragment() {
     private var _binding: FragmentHouseholdMemberFormBinding? = null
@@ -661,14 +660,14 @@ class HouseholdMemberFormFragment : Fragment() {
         ).show()
     }
 
-    private fun getActivityLevelFromPosition(position: Int): ActivityLevel {
+    private fun getActivityLevelFromPosition(position: Int): NutritionGuidelines.ActivityLevel {
         return when (position) {
-            0 -> ActivityLevel.SEDENTARY
-            1 -> ActivityLevel.LIGHTLY_ACTIVE
-            2 -> ActivityLevel.MODERATELY_ACTIVE
-            3 -> ActivityLevel.VERY_ACTIVE
-            4 -> ActivityLevel.EXTRA_ACTIVE
-            else -> ActivityLevel.MODERATELY_ACTIVE
+            0 -> NutritionGuidelines.ActivityLevel.SEDENTARY
+            1 -> NutritionGuidelines.ActivityLevel.LIGHTLY_ACTIVE
+            2 -> NutritionGuidelines.ActivityLevel.MODERATELY_ACTIVE
+            3 -> NutritionGuidelines.ActivityLevel.VERY_ACTIVE
+            4 -> NutritionGuidelines.ActivityLevel.EXTRA_ACTIVE
+            else -> NutritionGuidelines.ActivityLevel.MODERATELY_ACTIVE
         }
     }
 
@@ -951,10 +950,5 @@ class HouseholdMemberFormFragment : Fragment() {
         }
         super.onDestroyView()
         _binding = null
-    }
-
-    private fun validateDateOfBirth(date: LocalDate): Boolean {
-        val now = LocalDate.now()
-        return !date.isAfter(now)
     }
 } 

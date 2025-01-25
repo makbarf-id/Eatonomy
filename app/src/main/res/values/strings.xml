@@ -18,8 +18,4 @@
         <item>JPY</item>
         <item>USD</item>
     </string-array>
-
-    <string name="menu_budget">Budget</string>
-    <string name="menu_grocery">Grocery</string>
-    <string name="title_budget_planning">Budget Planning</string>
 </resources>

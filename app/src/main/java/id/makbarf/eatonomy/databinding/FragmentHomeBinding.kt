@@ -1,1 +1,0 @@
-// This will be generated automatically by the view binding feature 

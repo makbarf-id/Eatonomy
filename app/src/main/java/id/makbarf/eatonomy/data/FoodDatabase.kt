@@ -10,23 +10,14 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.room.TypeConverters
 
 @Database(
-    entities = [
-        FoodItem::class,
-        HouseholdMember::class,
-        Budget::class,
-        GroceryPlan::class,
-        PlannedGroceryItem::class
-    ],
-    version = 5,
+    entities = [FoodItem::class, HouseholdMember::class],
+    version = 4,
     exportSchema = false
 )
 @TypeConverters(Converters::class)
 abstract class FoodDatabase : RoomDatabase() {
     abstract fun foodItemDao(): FoodItemDao
     abstract fun householdMemberDao(): HouseholdMemberDao
-    abstract fun budgetDao(): BudgetDao
-    abstract fun groceryPlanDao(): GroceryPlanDao
-    abstract fun plannedGroceryItemDao(): PlannedGroceryItemDao
 
     companion object {
         @Volatile
@@ -39,7 +30,7 @@ abstract class FoodDatabase : RoomDatabase() {
                     FoodDatabase::class.java,
                     "food_database"
                 )
-                .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5)
+                .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4)
                 .fallbackToDestructiveMigration()
                 .build()
                 INSTANCE = instance
@@ -105,67 +96,6 @@ abstract class FoodDatabase : RoomDatabase() {
                     ALTER TABLE household_members 
                     ADD COLUMN targetDate INTEGER
                 """)
-            }
-        }
-
-        private val MIGRATION_4_5 = object : Migration(4, 5) {
-            override fun migrate(database: SupportSQLiteDatabase) {
-                // Create new tables
-                database.execSQL("""
-                    CREATE TABLE IF NOT EXISTS budgets (
-                        id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-                        name TEXT NOT NULL,
-                        amount REAL NOT NULL,
-                        currency TEXT NOT NULL,
-                        startDate INTEGER NOT NULL,
-                        endDate INTEGER NOT NULL,
-                        status TEXT NOT NULL,
-                        spentAmount REAL NOT NULL DEFAULT 0,
-                        remainingAmount REAL NOT NULL,
-                        notes TEXT,
-                        createdAt INTEGER NOT NULL,
-                        updatedAt INTEGER NOT NULL
-                    )
-                """)
-                
-                database.execSQL("""
-                    CREATE TABLE IF NOT EXISTS grocery_plans (
-                        id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-                        name TEXT NOT NULL,
-                        budgetId INTEGER NOT NULL,
-                        status TEXT NOT NULL,
-                        plannedDate INTEGER NOT NULL,
-                        completedDate INTEGER,
-                        estimatedTotal REAL NOT NULL DEFAULT 0,
-                        actualTotal REAL NOT NULL DEFAULT 0,
-                        notes TEXT,
-                        createdAt INTEGER NOT NULL,
-                        updatedAt INTEGER NOT NULL,
-                        FOREIGN KEY(budgetId) REFERENCES budgets(id) ON DELETE CASCADE
-                    )
-                """)
-                
-                database.execSQL("""
-                    CREATE TABLE IF NOT EXISTS planned_grocery_items (
-                        id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-                        planId INTEGER NOT NULL,
-                        foodItemId INTEGER NOT NULL,
-                        quantity REAL NOT NULL,
-                        unit TEXT NOT NULL,
-                        estimatedCost REAL NOT NULL,
-                        actualCost REAL,
-                        isPurchased INTEGER NOT NULL DEFAULT 0,
-                        notes TEXT,
-                        createdAt INTEGER NOT NULL,
-                        updatedAt INTEGER NOT NULL,
-                        FOREIGN KEY(planId) REFERENCES grocery_plans(id) ON DELETE CASCADE,
-                        FOREIGN KEY(foodItemId) REFERENCES food_items(id) ON DELETE RESTRICT
-                    )
-                """)
-                
-                // Create indices
-                database.execSQL("CREATE INDEX IF NOT EXISTS index_planned_grocery_items_planId ON planned_grocery_items(planId)")
-                database.execSQL("CREATE INDEX IF NOT EXISTS index_planned_grocery_items_foodItemId ON planned_grocery_items(foodItemId)")
             }
         }
     }

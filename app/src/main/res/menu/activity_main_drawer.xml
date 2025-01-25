@@ -12,13 +12,5 @@
             android:id="@+id/nav_household_members"
             android:icon="@drawable/ic_family_nav"
             android:title="Household Members" />
-        <item
-            android:id="@+id/nav_budget"
-            android:icon="@drawable/ic_budget"
-            android:title="@string/menu_budget" />
-        <item
-            android:id="@+id/nav_grocery"
-            android:icon="@drawable/ic_grocery"
-            android:title="@string/menu_grocery" />
     </group>
 </menu>
